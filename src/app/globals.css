@@ -2,32 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body{
+  background-color: #F0F4FD;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.body{
+  display: flex;
+  flex-direction: row;
+
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.titel{
+  font-weight: 700;
+  margin-bottom: 20px;
 }
+
+.sidebar{
+  background-color: #b2baf4;
+  width: 300px;
+  height: 100vh;
+  box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar h1{
+  color: white;
+  font-size: 3.5rem;
+}
+
+.sidebar button{
+  color: #b2baf4;
+  background-color: white;
+  font-size: 2.5rem;
+  width: 270px;
+  height: 90px;
+  border-radius: 30px;
+  margin-top: 30px;
+  box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
+  font-weight: 700;
+}
+
+button:hover{
+ background-color: rgb(229, 229, 229);
+}
+
+/* ======================================================================== */
+/* Trade Page CSS */
+
+.displayBox{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 200px;
+}
+
+.box{
+  border-top: #b2baf4 solid 5px;
+  border-bottom: #b2baf4 solid 5px;
+  width: 100%;
+  height: 150px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy{
+    color: #b2baf4;
+    background-color: white;
+    font-size: 1.7rem;
+    width: 200px;
+    height: 70px;
+    border-radius: 30px;
+    margin-right: 30px;
+    box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
+    font-weight: 700;
+}
+
+.text{
+  margin-left: 140px;
+}
+
+/* #7F97F3 */
