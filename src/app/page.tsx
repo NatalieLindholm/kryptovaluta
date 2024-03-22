@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import BuyButton from "@/components/BuyButton";
 
-export default async function Home() {
+export default async function home() {
+  const res = await fetch("https://api.coincap.io/v2/assets");
+
+  const data = await res.json();
+
+  type crypto = {
+    id: string;
+    symbol: string;
+    name: string;
+    priceUsd: string;
+    changePercent24hr: string;
+  };
   return (
     <div className="body">
       <div className="sidebar">
@@ -20,31 +21,28 @@ export default async function Home() {
           <h1>Currency</h1>
           <h1>App</h1>
         </div>
-        {/*
+
         <Link href={"/trade"}>
           <button>Trade</button>
-        </Link> */}
-
-        <Drawer>
-          <DrawerTrigger className="DrawerTrigger">Open</DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-              <DrawerDescription>
-                This action cannot be undone.
-              </DrawerDescription>
-            </DrawerHeader>
-            <DrawerFooter>
-              <Button>Submit</Button>
-              <DrawerClose>
-                <Button variant="outline">Cancel</Button>
-              </DrawerClose>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
+        </Link>
       </div>
 
       <div>{/* Your bought crypto here */}</div>
+      <div className="displayBox">
+        {data.data.map((crypto: crypto) => (
+          <div className="box" key={crypto.id}>
+            <div className="text">
+              <h2 className="font-bold">{crypto.name}</h2>
+              <h3>{crypto.symbol}</h3>
+            </div>
+            <p>Price: ${parseFloat(crypto.priceUsd).toFixed(2)}</p>
+            <BuyButton
+              symbol={crypto.symbol}
+              price={crypto.priceUsd}
+            ></BuyButton>
+          </div>
+        ))}
+      </div>
       <div className="portfolio">
         <h2>
           <b>BTC</b>
