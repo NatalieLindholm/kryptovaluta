@@ -28,21 +28,6 @@ export default async function home() {
       </div>
 
       <div>{/* Your bought crypto here */}</div>
-      <div className="displayBox">
-        {data.data.map((crypto: crypto) => (
-          <div className="box" key={crypto.id}>
-            <div className="text">
-              <h2 className="font-bold">{crypto.name}</h2>
-              <h3>{crypto.symbol}</h3>
-            </div>
-            <p>Price: ${parseFloat(crypto.priceUsd).toFixed(2)}</p>
-            <BuyButton
-              symbol={crypto.symbol}
-              price={crypto.priceUsd}
-            ></BuyButton>
-          </div>
-        ))}
-      </div>
       <div className="portfolio">
         <h2>
           <b>BTC</b>
@@ -56,10 +41,28 @@ export default async function home() {
         <p>
           Price Bought: <b>232323</b>
         </p>
-        <h3>
+        <p>
           Current Price: <b>4545</b>
-        </h3>
+        </p>
+        <p>
+          Profit: <b>0.23%</b>
+        </p>
       </div>
+      {/* <div className="displayBox">
+        {data.data.map((crypto: crypto) => (
+          <div className="box" key={crypto.id}>
+            <div className="text">
+              <h2 className="font-bold">{crypto.name}</h2>
+              <h3>{crypto.symbol}</h3>
+            </div>
+            <p>Price: ${parseFloat(crypto.priceUsd).toFixed(2)}</p>
+            <BuyButton
+              symbol={crypto.symbol}
+              price={crypto.priceUsd}
+            ></BuyButton>
+          </div>
+        ))}
+      </div> */}
     </div>
   );
 }

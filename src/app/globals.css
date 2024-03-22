@@ -38,9 +38,9 @@ body{
 button{
   color: #9EB4E6;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 40px;
   font-size: 3.5rem;
-  width: 300px;
+  width: 350px;
   height: 100px;
   font-weight: 700;
   box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
@@ -65,3 +65,22 @@ button:hover{
 .text{
 margin-left: 450px;
 } */
+
+.buy{
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+}
+
+.portfolio{
+  border-radius: 10px;
+  border: solid #9EB4E6 5px;
+  font-size: 2rem;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
