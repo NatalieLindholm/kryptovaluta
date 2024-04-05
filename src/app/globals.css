@@ -1,4 +1,4 @@
-@tailwind base;
+ @tailwind base;
 @tailwind components;
 @tailwind utilities;
  
@@ -13,74 +13,131 @@ body{
 }
 
 .body{
-  display: flex;
-  flex-direction: row;
+ display: flex;
 }
 
 .sidebar{
   background-color: #9EB4E6;
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
   width: 400px;
   height: 100vh;
+  position: fixed;
   box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.titel{
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: white;
-}
-
-button{
-  color: #9EB4E6;
-  background-color: white;
-  border-radius: 40px;
-  font-size: 3.5rem;
-  width: 350px;
-  height: 100px;
-  font-weight: 700;
-  box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
-}
-
-button:hover{
-  background-color: rgb(236, 236, 236);
-}
-
-/* .box{
-  border-top: #9EB4E6 solid 5px;
-  border-bottom: #9EB4E6 solid 5px;
-  height: 200px;
-  width: 100%;
-  font-size: 2.5rem;
+.content{
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;  
   align-items: center;
-
+  justify-content: center;
+  margin-left: 400px;
 }
 
-.text{
-margin-left: 450px;
-} */
+
+.zekken {
+  display: flex;
+  gap: 2em;
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.box{
+  font-size: 1.6rem;
+  background-color: white;
+  margin: 15px;
+  width: 320px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.box h2{
+  font-size: 2rem;
+}
 
 .buy{
   width: 100px;
-  height: 100px;
+  height: 70px;
   font-size: 2rem;
+  font-weight: 700;
+  background-color: #9EB4E6;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
+  margin: 20px 10px 10px 10px;
 }
 
-.portfolio{
-  border-radius: 10px;
-  border: solid #9EB4E6 5px;
-  font-size: 2rem;
-  width: 400px;
-  height: 500px;
+.buy:hover{
+  background-color: #8fa6db;
+}
+
+.whole{
+  position: relative;
+  margin-top: 20px;
+  width: 80rem;
+  height: 410px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 25px;
+}
+
+.slideshow-container {
+  width: 70rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides.active {
+  display: block;
+}
+
+.prev,
+.next {
+  background-color: #9EB4E6;
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+  width: 100px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 4px 1px 4px rgb(0, 0, 0, 25%);
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.page-number {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }

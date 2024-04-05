@@ -10,14 +10,7 @@ export async function getData() {
   }
 }
 
-
-// export async function saveData(projectName:string) {
-//     try {
-//       await db.query("INSERT INTO projects(projectname) VALUES ($1)", [projectName])
-//       return 'Saved Successfully'
-//     } catch (error) {
-//       console.log(error);
-//       return 'Didnt save'
-//     }
-//   }
-  
+export async function getTransactions() {
+  const res = await db.query('SELECT * FROM transaction')
+  return res.rows
+}

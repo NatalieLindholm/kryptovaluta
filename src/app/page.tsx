@@ -1,5 +1,6 @@
-import Link from "next/link";
+import Slide from "@/components/Slide";
 import BuyButton from "@/components/BuyButton";
+import Transactions from "@/components/Transactions";
 
 export default async function home() {
   const res = await fetch("https://api.coincap.io/v2/assets");
@@ -16,53 +17,36 @@ export default async function home() {
   return (
     <div className="body">
       <div className="sidebar">
-        <div className="titel">
+        <div>
           <h1>Crypto</h1>
           <h1>Currency</h1>
           <h1>App</h1>
         </div>
-
-        <Link href={"/trade"}>
-          <button>Trade</button>
-        </Link>
       </div>
 
-      <div>{/* Your bought crypto here */}</div>
-      <div className="portfolio">
-        <h2>
-          <b>BTC</b>
-        </h2>
-        <p>
-          Time Bought: <b>10:23</b>
-        </p>
-        <p>
-          Units: <b>1</b>
-        </p>
-        <p>
-          Price Bought: <b>232323</b>
-        </p>
-        <p>
-          Current Price: <b>4545</b>
-        </p>
-        <p>
-          Profit: <b>0.23%</b>
-        </p>
+      <div className="content">
+        <div>
+          <Slide>
+            {data.data.map((crypto: crypto) => (
+              <div className="box" key={crypto.id}>
+                <h2 className="font-bold">{crypto.name}</h2>
+                <h3>{crypto.symbol}</h3>
+                <p>Price: ${parseFloat(crypto.priceUsd).toFixed(2)}</p>
+                <BuyButton
+                  symbol={crypto.symbol}
+                  price={crypto.priceUsd}
+                ></BuyButton>
+              </div>
+            ))}
+          </Slide>
+        </div>
+
+        <div>
+          <Transactions api={data.data} />
+        </div>
       </div>
-      {/* <div className="displayBox">
-        {data.data.map((crypto: crypto) => (
-          <div className="box" key={crypto.id}>
-            <div className="text">
-              <h2 className="font-bold">{crypto.name}</h2>
-              <h3>{crypto.symbol}</h3>
-            </div>
-            <p>Price: ${parseFloat(crypto.priceUsd).toFixed(2)}</p>
-            <BuyButton
-              symbol={crypto.symbol}
-              price={crypto.priceUsd}
-            ></BuyButton>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
+}
+{
 }
